@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/edt_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_simpleNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_test"
+        android:layout_centerInParent="true"
+        android:text="Simple Notification"
+        android:onClick="onClick"
+        android:textAllCaps="false" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_bigPictureStyleNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_simpleNotification"
+        android:layout_centerInParent="true"
+        android:text="Big Picture Style Notification"
+        android:onClick="onClick"
+        android:textAllCaps="false" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_bigTextStyleNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_bigPictureStyleNotification"
+        android:layout_centerInParent="true"
+        android:text="BigTextStyle Notification"
+        android:onClick="onClick"
+        android:textAllCaps="false" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_inboxStyleNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_bigTextStyleNotification"
+        android:layout_centerInParent="true"
+        android:text="InboxStyle Notification"
+        android:onClick="onClick"
+        android:textAllCaps="false" />
+
+
+</RelativeLayout>

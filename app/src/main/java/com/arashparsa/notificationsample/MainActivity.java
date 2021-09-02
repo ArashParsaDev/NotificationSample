@@ -2,12 +2,17 @@ package com.arashparsa.notificationsample;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,6 +31,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         materialButton = findViewById(R.id.btn_simpleNotification);
 
+
+    }
+    public static Bitmap getBitmapFromVectorDrawable(Context context, int drawableId) {
+        Drawable drawable = ContextCompat.getDrawable(context, drawableId);
+        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(),
+                drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+
+        return bitmap;
     }
 
     @Override
@@ -38,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this,0,intent,0);
                 Notification notification = new NotificationCompat.Builder(MainActivity.this, "myapp")
                         .setSmallIcon(R.drawable.ic_baseline_music_note_24)
-                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_background))
+                        .setLargeIcon(getBitmapFromVectorDrawable(MainActivity.this,R.drawable.ic_baseline_music_video_24))
                         .setContentTitle("My Notification")
                         .setContentText("This is my first notification")
                         .setContentIntent(pendingIntent)
